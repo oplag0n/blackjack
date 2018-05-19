@@ -113,3 +113,24 @@ def show_all(player,dealer):
     print("Dealer's Hand =",dealer.value)
     print("\nPlayer's Hand:", *player.cards, sep='\n ')
     print("Player's Hand =",player.value)
+
+#Game ending cases 
+
+def player_busts(player, chips):
+    print("You busted! Your value is: {}".format(player.value))
+    chips.lose_bet()
+
+def player_wins(player, dealer):
+    print("You win! Your value is: {} The dealer has: {}".format(player.value, dealer.value))
+    chips.win_bet()
+
+def dealer_busts(chips):
+    print("Dealer Busts! You are in Luck!")
+    chips.win_bet()
+    
+def dealer_wins(player, dealer, chips):
+    print("The Dealer wins! Your value is: {} The dealer has: {}".format(player.value, dealer.value))
+    chips.lose_bet()
+    
+def push(player):
+    print("Its a draw! You both have {}. You get your money back.".format(player.value))
