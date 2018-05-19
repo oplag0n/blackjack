@@ -110,15 +110,15 @@ def hit_or_stand(deck,hand):
 
 def show_some(player,dealer):
     print("\nDealer's Hand:")
-    print(" <card hidden>\n")
+    print(" <card hidden>")
     print(dealer.cards[1])  
     print("\nPlayer's Hand:")
     print(*player.cards, sep='\n')
     
 def show_all(player,dealer):
-    print("\nDealer's Hand:", dealer.cards)
+    print("\nDealer's Hand:", *dealer.cards, sep='\n ')
     print("Dealer's Hand =",dealer.value)
-    print("\nPlayer's Hand:", player.cards)
+    print("\nPlayer's Hand:", *player.cards, sep='\n ')
     print("Player's Hand =",player.value)
 
 #Game ending cases 
@@ -207,7 +207,7 @@ while True:
             push(player,dealer) 
     
     # Inform Player of their chips total 
-    print("\nPlayer's winnings stand at",player_chips.total)
+    print("\nPlayer's winnings stand at",chips.total)
     
     # Ask to play again
     new_game = input("Would you like to play another hand? Enter 'y' or 'n' ")
