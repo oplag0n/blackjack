@@ -49,7 +49,7 @@ class Hand:
     
     def add_card(self,card):
         self.cards.append(card)
-        self.value += values[card]
+        self.value += values[card.rank]
         if card.rank == 'Ace':
             self.aces += 1  # add to self.aces
     
@@ -111,13 +111,13 @@ def hit_or_stand(deck,hand):
 def show_some(player,dealer):
     print("\nDealer's Hand:")
     print(" <card hidden>")
-    print('',dealer.cards[1])  
-    print("\nPlayer's Hand:", *player.cards, sep='\n ')
+    print('', dealer.cards[1])  
+    print("\nPlayer's Hand:", player.cards)
     
 def show_all(player,dealer):
-    print("\nDealer's Hand:", *dealer.cards, sep='\n ')
+    print("\nDealer's Hand:", dealer.cards)
     print("Dealer's Hand =",dealer.value)
-    print("\nPlayer's Hand:", *player.cards, sep='\n ')
+    print("\nPlayer's Hand:", player.cards)
     print("Player's Hand =",player.value)
 
 #Game ending cases 
@@ -184,7 +184,7 @@ while True:
             break
 
     # If Player hasn't busted, play Dealer's hand until Dealer reaches 17
-   if player.value <= 21:
+    if player.value <= 21:
         
         while dealer.value < 17:
             hit(deck,dealer)
@@ -203,7 +203,7 @@ while True:
             player_wins(player,dealer,chips)
 
         else:
-            push(player,dealer)
+            push(player,dealer) 
     
     # Inform Player of their chips total 
     print("\nPlayer's winnings stand at",player_chips.total)
@@ -218,4 +218,4 @@ while True:
         break
     # Ask to play again
 
-        break
+    break
