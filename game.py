@@ -91,16 +91,22 @@ def hit(deck,hand):
     hand.adjust_for_ace()
 
 def hit_or_stand(deck,hand):
-    global playing = True # to control an upcoming while loop
-    answer = ''
-    while playing == True:
-        answer = input('Do you want to Stand or Hit? (s or h)').lower()
-        if answer == 's':
+    global playing
+    
+    while True:
+        x = input("Would you like to Hit or Stand? Enter 'h' or 's' ")
+        
+        if x[0].lower() == 'h':
+            hit(deck,hand)  # hit() function defined above
+
+        elif x[0].lower() == 's':
+            print("Player stands. Dealer is playing.")
             playing = False
-        elif anser == 'h':
-            hit(deck,hand)
+
         else:
-            print('Wrong Input, please try again.')
+            print("Sorry, please try again.")
+            continue
+        break
 
 def show_some(player,dealer):
     print("\nDealer's Hand:")
@@ -134,3 +140,4 @@ def dealer_wins(player, dealer, chips):
     
 def push(player):
     print("Its a draw! You both have {}. You get your money back.".format(player.value))
+
