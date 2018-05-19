@@ -110,9 +110,10 @@ def hit_or_stand(deck,hand):
 
 def show_some(player,dealer):
     print("\nDealer's Hand:")
-    print(" <card hidden>")
-    print('', dealer.cards[1])  
-    print("\nPlayer's Hand:", player.cards)
+    print(" <card hidden>\n")
+    print(dealer.cards[1])  
+    print("\nPlayer's Hand:")
+    print(*player.cards, sep='\n')
     
 def show_all(player,dealer):
     print("\nDealer's Hand:", dealer.cards)
@@ -157,7 +158,7 @@ while True:
     dealer = Hand()
     dealer.add_card(deck.deal())
     dealer.add_card(deck.deal())
- 
+    show_some(player, dealer)
     # Set up the Player's chips
     chips = Chips()
     
