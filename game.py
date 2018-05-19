@@ -89,3 +89,27 @@ def take_bet(chips):
 def hit(deck,hand):
     hand.add_card(deck.deal())
     hand.adjust_for_ace()
+
+def hit_or_stand(deck,hand):
+    global playing = True # to control an upcoming while loop
+    answer = ''
+    while playing == True:
+        answer = input('Do you want to Stand or Hit? (s or h)').lower()
+        if answer == 's':
+            playing = False
+        elif anser == 'h':
+            hit(deck,hand)
+        else:
+            print('Wrong Input, please try again.')
+
+def show_some(player,dealer):
+    print("\nDealer's Hand:")
+    print(" <card hidden>")
+    print('',dealer.cards[1])  
+    print("\nPlayer's Hand:", *player.cards, sep='\n ')
+    
+def show_all(player,dealer):
+    print("\nDealer's Hand:", *dealer.cards, sep='\n ')
+    print("Dealer's Hand =",dealer.value)
+    print("\nPlayer's Hand:", *player.cards, sep='\n ')
+    print("Player's Hand =",player.value)
